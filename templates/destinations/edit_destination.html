@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section id="edit-destination-page" class="content auth">
+        <form id="register" method="post" action="{% url 'edit destination' destination.slug %}">
+            <div class="container">
+                <h1>Edit Destination</h1>
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input class="btn submit" type="submit" value="Confirm changes">
+            </div>
+        </form>
+    </section>
+{% endblock %}

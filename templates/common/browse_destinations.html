@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if not destinations %}
+        <h1 class="no-destinations">No destinations yet</h1>
+    {% else %}
+        <section id="catalogue">
+            {% for destination in destinations %}
+                <div class="destination-card">
+                    <div class="image-wrap">
+                        <img src="{{ destination.destination_image }}" alt="{{ destination.name }}">
+                    </div>
+                    <div class="destination-info">
+                        <h2>Name: {{ destination.name }}</h2>
+                        <h2>Type: {{ destination.type }}</h2>
+                        <h2>Author: {{ destination.author }}</h2>
+                    </div>
+                    <div class="details-buttons">
+                        <a href="{% url 'destination details' destination.slug %}" class="details-btn">Read more...</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}

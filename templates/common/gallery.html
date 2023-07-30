@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if not photos %}
+        <h1 class="no-photos">No photos yet</h1>
+    {% else %}
+        <section id="catalogue">
+            {% for photo in photos %}
+                <div class="photo-card">
+                    <div class="image-wrap">
+                        <img src="{{ photo.photo }}" alt="{{ photo.location }}">
+                    </div>
+                    <div class="photo-info">
+                        <h2>{{ photo.location }}</h2>
+                    </div>
+{#                    <div class="details-buttons">#}
+{#                        <a href="{% url 'photo details' photo.id %}" class="details-btn">Read more...</a>#}
+{#                    </div>#}
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}

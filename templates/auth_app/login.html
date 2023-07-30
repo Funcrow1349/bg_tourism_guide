@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <section id="login-page" class="content auth">
+        <form id="login" method="post" action="{% url 'login' %}">
+            <div class="container">
+                <h1>Login</h1>
+
+                {{ form.as_p }}
+                {% csrf_token %}
+
+                <input class="btn submit" type="submit" value="Login">
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

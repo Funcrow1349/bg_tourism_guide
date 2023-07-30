@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="profile-info">
+        <img src="{% static 'images/default-profile-picture.png' %}" alt="Profile">
+        <div>
+            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Username: {{ user.username }}</p>
+            <p>Gender: {{ user.gender }}</p>
+            <p>Bio: {{ user.bio }}</p>
+        </div>
+
+        {% if request.user == user %}
+            <div class="profile-actions">
+                <!-- Edit button -->
+                <a href="{% url 'user edit' user.pk %}">
+                    <button>Edit</button>
+                </a>
+
+                <!-- Delete button -->
+                <a href="{% url 'user delete' user.pk %}">
+                    <button>Delete</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="destinations-by-user">
+        <h3>Destinations added by this user:</h3>
+        {% if destinations %}
+            <ul>
+                {% for d in destinations %}
+                    <li>
+                        <a href="#">{{ d.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>This user has not added any destinations!</p>
+        {% endif %}
+    </div>
+
+    <div class="articles-by-user">
+        <h3>Articles written by this user:</h3>
+        {% if articles %}
+            <ul>
+                {% for a in articles %}
+                    <li>
+                        <a href="#">{{ a.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>This user has not written any articles!</p>
+        {% endif %}
+    </div>
+
+    <div class="photos-by-user">
+        <h3>Photos uploaded by this user:</h3>
+        {% if photos %}
+            <div class="photo-grid">
+                {% for p in photos %}
+                    <div class="photo-item">
+                        <a href="#">
+                            <img src="{{ p.photo }}" alt="{{ p.location }}">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>This user has not uploaded any photos!</p>
+        {% endif %}
+    </div>
+{% endblock %}

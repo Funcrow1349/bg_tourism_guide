@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <section id="add-article-page" class="content auth">
+        <form id="register" method="post" action="{% url 'add article' %}">
+            <div class="container">
+                <h1>Add Article</h1>
+
+                {{ form.as_p }}
+                {% csrf_token %}
+
+                <input class="btn submit" type="submit" value="Submit">
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

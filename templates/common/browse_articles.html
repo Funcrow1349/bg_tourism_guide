@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if not articles %}
+        <h1 class="no-articles">No articles yet</h1>
+    {% else %}
+        <section id="catalogue">
+            {% for article in articles %}
+                <div class="article-card">
+                    <div class="image-wrap">
+                        <img src="{{ article.article_image }}" alt="{{ article.title }}">
+                    </div>
+                    <div class="article-info">
+                        <h1>{{ article.title }}</h1>
+                        <h4>{{ article.body|truncatechars:200 }}</h4>
+                    </div>
+                    <div class="details-buttons">
+                        <a href="{% url 'article details' article.slug %}" class="details-btn">Read more...</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}

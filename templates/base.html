@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <title>Bulgarian Tourism Guide</title>
+</head>
+
+<body>
+    <div id="box">
+        <header>
+            <!-- Navigation Bar -->
+            <nav>
+                <a href="{% url 'index' %}">Home</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'user details' pk=user.id %}">{{ request.user }}</a>
+                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'browse gallery' %}">Gallery</a>
+                    <a href="{% url 'browse destinations' %}">Browse Destinations</a>
+                    <a href="{% url 'browse articles' %}">Browse Articles</a>
+
+                {% else %}
+                    <a href="{% url 'user create' %}">Create Profile</a>
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'browse gallery' %}">Gallery</a>
+                    <a href="{% url 'browse destinations' %}">Browse Destinations</a>
+                    <a href="{% url 'browse articles' %}">Browse Articles</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <!-- headlines -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

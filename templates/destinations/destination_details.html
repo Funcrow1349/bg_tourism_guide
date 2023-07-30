@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="profile-info">
+        <img src="{{ destination.destination_image }}" alt="Profile">
+        <div>
+            <p>Name: {{ destination.name }}</p>
+            <p>Type: {{ destination.type }}</p>
+            <p>Location: {{ destination.location }}</p>
+            <p>Description: {{ destination.description }}</p>
+            <p>Created on: {{ destination.created }}</p>
+            <p>Last Update: {{ destination.udpated }}</p>
+        </div>
+
+        {% if request.user == destination.author %}
+            <div class="destination-actions">
+                <!-- Edit button -->
+                <a href="{% url 'edit destination' destination.slug %}">
+                    <button>Edit</button>
+                </a>
+
+                <!-- Delete button -->
+                <a href="{% url 'delete destination' destination.slug %}">
+                    <button>Delete</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

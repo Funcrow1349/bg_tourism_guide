@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <img src="{{ article.article_image }}" alt="Profile" class="article-image">
+    </div>
+
+    {% if request.user == article.author %}
+        <div class="article-actions">
+            <!-- Edit button -->
+            <a href="{% url 'edit article' article.slug %}">
+                <button class="btn btn-edit">Edit</button>
+            </a>
+
+            <!-- Delete button -->
+            <a href="{% url 'delete article' article.slug %}">
+                <button class="btn btn-delete">Delete</button>
+            </a>
+        </div>
+    {% endif %}
+    <div class="profile-info">
+
+        <div>
+            <p class="article-title">{{ article.title }}</p>
+            <p>{{ article.body }}</p>
+            <p>Author: {{ article.author }}</p>
+            <p>Created on: {{ article.created }}</p>
+            <p>Last Update: {{ article.updated }}</p>
+        </div>
+
+
+    </div>
+    <h2>Tagged Destinations:</h2>
+    <ul class="tagged-destinations">
+        {% for tag in article.tagged_destinations.all %}
+            <li>
+                <img src="{{ tag.destination_image }}" alt="Destination Image" class="destination-article-image">
+                <div>
+                    <a href="{% url 'destination details' tag.slug %}" class="destination-name">{{ tag.name }}</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

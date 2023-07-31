@@ -1,11 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from bg_tourism_guide.articles.forms import ArticleForm
+from bg_tourism_guide.articles.models import Article
 
 
-def article_details(request, article_slug):
-    pass
+class ArticleDetailsView(DetailView):
+    model = Article
+    template_name = 'articles/article_details.html'
+    context_object_name = 'article'
 
 
 class AddArticle(CreateView):
@@ -18,9 +22,14 @@ class AddArticle(CreateView):
         return super().form_valid(form)
 
 
-def edit_article(request, article_slug):
-    pass
+class ArticleEditView(LoginRequiredMixin, UpdateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'articles/edit_article.html'
+    success_url = reverse_lazy('browse articles')
 
 
-def delete_article(request, article_slug):
-    pass
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+    model = Article
+    template_name = 'articles/delete_article.html'
+    success_url = reverse_lazy('browse articles')

@@ -23,16 +23,16 @@ nav {
 }
 
 nav a {
-    color: #969696;
+    color: #605d5d;
     text-decoration: none;
     padding: 10px;
 }
 
 nav a:hover {
-    background-color: #555;
+    background-color: #bacafa;
 }
 
-/* Destination and Article Card Styling (Reused from previous examples) */
+/* Destination and Article Card Styling */
 section#catalogue {
     display: flex;
     flex-wrap: wrap;
@@ -51,28 +51,29 @@ section#catalogue {
 
 .image-wrap {
     width: 100%;
-    height: 200px; /* You can adjust the height as needed */
+    height: 200px;
     overflow: hidden;
 }
 
 .image-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This will make the image fit within the container */
+    object-fit: cover;
 }
 
-.destination-info h2,
+.destination-info h3,
 .article-info h1 {
     font-size: 20px;
     margin-bottom: 10px;
+    color: #625353;
 }
 
 .article-info h4 {
     font-size: 14px;
-    color: #f1efef;
+    color: #f8f7f7;
 }
 
-/* Details Button Styling (Reused from previous examples) */
+/* Details Button Styling */
 .details-buttons .details-btn {
     display: inline-block;
     background-color: #b8e0c9;
@@ -108,6 +109,8 @@ section#catalogue {
 
 .profile-info p {
     margin-bottom: 10px;
+    font-size: 20px;
+    font-style: oblique;
 }
 
 /* Profile Actions Styling */
@@ -142,7 +145,7 @@ section#catalogue {
 .destinations-by-user ul,
 .articles-by-user ul,
 .photos-by-user ul {
-    list-style: none;
+    list-style: inside;
 }
 
 .destinations-by-user li,
@@ -180,7 +183,7 @@ section#catalogue {
 
 /* Form Styling */
 .container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -217,6 +220,81 @@ form .btn.submit {
 form .btn.submit:hover {
     background-color: #2980b9;
 }
+
+/* Additional CSS for Centering Form Elements */
+form#register-page,
+form#edit-profile-page,
+form#add-destination-page,
+form#add-article-page,
+form#edit-article-page,
+form#edit-destination-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 1px;
+}
+
+/* CSS for Article Image */
+.article-image,
+.destination-image {
+    width: 500px;
+    height: 300px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+/* CSS for Article Title */
+.article-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+/* CSS for Article Actions and Destination Actions */
+.article-actions,
+.destination-actions {
+    display: flex;
+    margin-top: 10px;
+}
+
+.article-actions button,
+.destination-actions button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* CSS for Tagged Destinations */
+.tagged-destinations {
+    list-style: circle;
+}
+
+.tagged-destinations li {
+    margin-bottom: 20px;
+}
+
+.tagged-destinations img {
+    height: 100px;
+    width: 130px;
+}
+
+
+/* CSS for Destination Name */
+.destination-name {
+    text-decoration: none;
+    color: #333;
+}
+
 
 #delete-account-page {
     max-width: 400px;
@@ -265,45 +343,6 @@ form .btn.submit:hover {
 
 #delete-account-page form a.btn.btn-secondary:hover {
     background-color: #5a6268;
-}
-
-/* Destination Page Styling */
-.profile-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-info img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
-    object-fit: cover;
-}
-
-.profile-info div {
-    max-width: 400px;
-}
-
-.profile-info p {
-    margin-bottom: 10px;
-}
-
-/* Destination Actions Styling */
-.destination-actions {
-    display: flex;
-    margin-top: 10px;
-}
-
-.destination-actions button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
 }
 
 #delete-destination-page {
@@ -355,21 +394,8 @@ form .btn.submit:hover {
     background-color: #5a6268;
 }
 
-.destination-image {
-    width: 500px; /* Adjust this value to your desired width */
-    height: 300px; /* Adjust this value to your desired height */
-    object-fit: cover;
-}
-
-/* Additional CSS for Centering Form Elements */
-form#register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-form#register .container {
-    max-width: 400px; /* Adjust the maximum width as needed */
+#delete-article-page {
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -377,93 +403,57 @@ form#register .container {
     border-radius: 5px;
 }
 
-form#register h1 {
+#delete-article-page h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-form#register input[type="text"],
-form#register input[type="password"],
-form#register select,
-form#register textarea {
-    width: 100%;
-    padding: 10px;
+#delete-article-page p {
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-form#register .btn.submit {
-    background-color: #3498db;
-    color: #fff;
+#delete-article-page form input[type="submit"],
+#delete-article-page form a.btn {
+    display: inline-block;
     padding: 10px 15px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.2s ease-in-out;
 }
 
-form#register .btn.submit:hover {
-    background-color: #2980b9;
-}
-
-.logo {
-    width: 45px;
-    height: 45px;
-    margin-right: 1px;
-}
-
-/* CSS for Article Image */
-.article-image {
-    width: 500px;
-    height: 300px;
-    margin-right: 20px;
-    object-fit: cover;
-}
-
-/* CSS for Article Title */
-.article-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-/* CSS for Article Actions */
-.article-actions {
-    display: flex;
-    margin-top: 10px;
-}
-
-.article-actions button {
-    background-color: #3498db;
+#delete-article-page form input[type="submit"].btn-danger {
+    background-color: #d9534f;
     color: #fff;
-    padding: 8px 12px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
 }
 
-/* CSS for Tagged Destinations */
-.tagged-destinations {
-    list-style: none;
+#delete-article-page form input[type="submit"].btn-danger:hover {
+    background-color: #c9302c;
 }
 
-.tagged-destinations li {
-    margin-bottom: 10px;
+#delete-article-page form a.btn.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    margin-left: 10px;
 }
 
-/* CSS for Destination Image */
-.destination-article-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
+#delete-article-page form a.btn.btn-secondary:hover {
+    background-color: #5a6268;
 }
 
-/* CSS for Destination Name */
-.destination-name {
-    text-decoration: none;
-    color: #333;
+
+.photo_detail_image-container {
+    max-width: 100%;
+    overflow: hidden;
 }
 
+.photo_detail_image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.photo_detail_image-container p {
+    text-decoration: whitesmoke;
+}

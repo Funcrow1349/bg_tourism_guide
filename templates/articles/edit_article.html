@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <section id="edit-article-page" class="content auth">
-        <form id="register" method="post" action="{% url 'edit article' article.slug %}">
+        <form id="edit-article" method="post" action="{% url 'edit article' article.slug %}">
             <div class="container">
                 <h1>Edit Article</h1>
                 {{ form.as_p }}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h1 class="article-title">{{ article.title }} </h1>
     <div>
         <img src="{{ article.article_image }}" alt="Profile" class="article-image">
     </div>
@@ -17,10 +18,9 @@
             </a>
         </div>
     {% endif %}
-    <div class="profile-info">
+    <div class="article-info">
 
         <div>
-            <p class="article-title">{{ article.title }}</p>
             <p>{{ article.body }}</p>
             <p>Author: {{ article.author }}</p>
             <p>Created on: {{ article.created }}</p>
@@ -33,10 +33,15 @@
     <ul class="tagged-destinations">
         {% for tag in article.tagged_destinations.all %}
             <li>
-                <img src="{{ tag.destination_image }}" alt="Destination Image" class="destination-article-image">
                 <div>
-                    <a href="{% url 'destination details' tag.slug %}" class="destination-name">{{ tag.name }}</a>
+                    <a href="{% url 'destination details' tag.slug %}" class="destination-name">{{ tag.name }}
+                        <div>
+                            <img src="{{ tag.destination_image }}" alt="Destination Image"
+                                 class="destination-article-image">
+                        </div>
+                    </a>
                 </div>
+
             </li>
         {% endfor %}
     </ul>

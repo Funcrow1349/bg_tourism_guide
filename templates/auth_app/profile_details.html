@@ -10,21 +10,21 @@
             <p>Gender: {{ user.gender }}</p>
             <p>Bio: {{ user.bio }}</p>
         </div>
-
-        {% if request.user == user %}
-            <div class="profile-actions">
-                <!-- Edit button -->
-                <a href="{% url 'user edit' user.pk %}">
-                    <button>Edit</button>
-                </a>
-
-                <!-- Delete button -->
-                <a href="{% url 'user delete' user.pk %}">
-                    <button>Delete</button>
-                </a>
-            </div>
-        {% endif %}
     </div>
+
+    {% if request.user == user %}
+        <div class="profile-actions">
+            <!-- Edit button -->
+            <a href="{% url 'user edit' user.pk %}">
+                <button>Edit</button>
+            </a>
+
+            <!-- Delete button -->
+            <a href="{% url 'user delete' user.pk %}">
+                <button>Delete</button>
+            </a>
+        </div>
+    {% endif %}
 
     <div class="destinations-by-user">
         <h3>Destinations added by this user:</h3>

@@ -5,24 +5,27 @@
         <p>Location: {{ photo.location }} | Date of publication: {{ photo.date_of_publication }} |
             Author: {{ photo.uploaded_by }}</p>
 
-    </div>
-    {% if user.is_authenticated %}
-        <div class='photo_detail_page_add_comment-container'>
-            <form action="" method="post">
-                {{ form }}
-                {% csrf_token %}
-
-                <input type="submit" value="Submit Comment">
-            </form>
+        <div class="comment-wrapper">
+            <h3>Total comments: {{ comments.count }}</h3>
+            <hr>
+            {% for comment in comments %}
+                <div>
+                    <small>@{{ comment.comment_author }}, {{ comment.date_time_of_publication|timesince }}
+                        ago</small>
+                    <h4>{{ comment.text }}</h4>
+                    <hr>
+                </div>
+            {% endfor %}
         </div>
-    {% endif %}
+        {% if user.is_authenticated %}
+            <div class='photo_detail_page_add_comment-container'>
+                <form action="" method="post">
+                    {{ form }}
+                    {% csrf_token %}
 
-    <div>
-        <p>Total comments: {{ comments.count }}</p>
-        {% for comment in comments %}
-            <p>from: {{ comment.comment_author }}  |  published: {{ comment.date_time_of_publication|timesince }} ago</p>
-            <p>{{ comment.text }}</p>
-        {% endfor %}
+                    <input type="submit" value="Submit Comment">
+                </form>
+            </div>
+        {% endif %}
     </div>
-
 {% endblock %}

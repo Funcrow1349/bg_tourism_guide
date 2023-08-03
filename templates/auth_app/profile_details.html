@@ -62,7 +62,7 @@
             <div class="photo-grid">
                 {% for p in photos %}
                     <div class="photo-item">
-                        <a href="#">
+                        <a href="{% url 'photo page' p.id %}">
                             <img src="{{ p.photo }}" alt="{{ p.location }}">
                         </a>
                     </div>

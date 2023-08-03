@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% if request.user.is_authenticated %}
+        <div class="add-photo-dest-art-button">
+        <a href="{% url 'add photo' %}">
+                <button>Add Destination</button>
+            </a>
+        </div>
+        <hr>
+    {% endif %}
+
     {% if not destinations %}
         <h1 class="no-destinations">No destinations yet</h1>
     {% else %}

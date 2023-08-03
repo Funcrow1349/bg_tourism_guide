@@ -456,4 +456,96 @@ form#edit-destination-page {
 
 .photo_detail_image-container p {
     text-decoration: whitesmoke;
+    color: #022d4d
+}
+
+
+
+.comment-wrapper {
+    margin-top: 20px;
+    border-top: 1px solid #ccc; /* Add a border above the comments */
+    padding-top: 10px; /* Add some padding above the comments */
+}
+
+.comment-wrapper h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #022d4d;
+}
+
+.comment-wrapper h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #022d4d;
+}
+
+.comment-wrapper div {
+    margin-bottom: 10px;
+}
+
+.comment-wrapper small {
+    color: #022d4d;
+}
+
+.comment-wrapper hr {
+    margin: 10px 0;
+    border: 0;
+    border-top: 1px solid #090909;
+}
+
+/* Style for Comment Form */
+.photo_detail_page_add_comment-container form {
+    margin-top: 20px;
+}
+
+.photo_detail_page_add_comment-container form input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.photo_detail_page_add_comment-container form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.add-photo-dest-art-button {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-photo-dest-art-button a {
+    text-decoration: none;
+}
+
+.add-photo-dest-art-button button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    align-self: center;
+}
+
+.add-photo-dest-art-button button:hover {
+    background-color: #2980b9;
+}
+
+section#catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px; /* Negative margin to remove spacing between photo cards */
+}
+
+.photo-card {
+    width: calc(33.33% - 20px); /* Each photo card takes up one-third of the container width */
+    margin: 10px; /* Margin to create space between photo cards */
 }

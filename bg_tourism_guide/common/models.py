@@ -9,7 +9,7 @@ CustomUser = get_user_model()
 
 class Comment(models.Model):
     text = models.TextField(max_length=300)
-    date_time_of_publication = models.DateField(auto_now_add=True)
+    date_time_of_publication = models.DateTimeField(auto_now_add=True)
     comment_author = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE)
     to_photo = models.ForeignKey(to=Photo, on_delete=models.CASCADE)
 

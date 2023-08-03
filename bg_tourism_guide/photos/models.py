@@ -7,7 +7,7 @@ CustomUser = get_user_model()
 
 
 class Photo(models.Model):
-    photo = models.URLField()
+    photo = models.URLField(max_length=1000)
     description = models.TextField(
         max_length=300,
         validators=[

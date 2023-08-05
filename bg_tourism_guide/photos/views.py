@@ -40,6 +40,7 @@ def photo_page(request, pk):
     photo = Photo.objects.get(pk=pk)
     form = CommentForm(request.POST or None)
     comments = photo.comment_set.all()
+    tags = photo.tagged_destinations.all()
     if form.is_valid():
         comment = form.save(commit=False)
         comment.to_photo = photo
@@ -54,6 +55,7 @@ def photo_page(request, pk):
         'photo': photo,
         'form': form,
         'comments': comments,
+        'tags': tags,
     }
 
     return render(request, 'photos/photo_page.html', context)

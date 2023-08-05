@@ -4,12 +4,19 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from bg_tourism_guide.destinations.forms import DestinationForm
 from bg_tourism_guide.destinations.models import Destination
+from bg_tourism_guide.photos.models import Photo
 
 
 class DestinationDetailsView(DetailView):
     model = Destination
     template_name = 'destinations/destination_details.html'
     context_object_name = 'destination'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        destination = self.get_object()
+        context['related_photos'] = Photo.objects.filter(tagged_destinations=destination)
+        return context
 
 
 class AddDestination(LoginRequiredMixin, CreateView):

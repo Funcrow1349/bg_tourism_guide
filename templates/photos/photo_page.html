@@ -4,7 +4,14 @@
         <img src="{{ photo.photo }}" alt="">
         <p>Location: {{ photo.location }} | Date of publication: {{ photo.date_of_publication }} |
             Author: {{ photo.uploaded_by }}</p>
-
+        {% if tags %}
+            <h3>Tagged destinations: </h3>
+            {% for destination in tags %}
+                <a href="{% url 'destination details' destination.slug %}">
+                <p>{{ destination.name }}</p>
+                </a>
+            {% endfor %}
+        {% endif %}
         <div class="comment-wrapper">
             <h3>Total comments: {{ comments.count }}</h3>
             <hr>

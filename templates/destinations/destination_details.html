@@ -4,6 +4,8 @@
     <div>
         <img class="destination-image" src="{{ destination.destination_image }}" alt="Profile">
     </div>
+
+
     {% if request.user == destination.author %}
         <div class="destination-actions">
             <!-- Edit button -->
@@ -27,4 +29,17 @@
             <p>Last Update: {{ destination.updated }}</p>
         </div>
     </div>
+
+    {% if related_photos %}
+        <div class="destination-related-photos">
+            <h3>User-submitted photos:</h3>
+            <div class="photo-grid">
+                {% for photo in related_photos %}
+                    <a href="{% url 'photo page' photo.id %}">
+                        <img src="{{ photo.photo }}" alt="{{ photo.location }}">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

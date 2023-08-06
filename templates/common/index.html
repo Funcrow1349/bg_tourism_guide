@@ -1,49 +1,78 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <!-- headlines -->
-    <p class="no-articles">No destinations yet</p>
-    <!-- Display div "destination" with information about every destination (if any)-->
-    <section id="catalogue">
-        <!-- first destination-->
-        <div class="destination-card">
-            <div class="image-wrap">
-                <!-- destination image -->
-                <img src="{% static 'images/default-profile-picture.png' %}"
-                     alt="Destinations">
-            </div>
-            <!-- destination name -->
-            <h1>Destination Name</h1>
-            <!-- destination type -->
-            <h3>Destination Type</h3>
+
+    {% if not destinations %}
+        <p class="no-destinations">No destinations yet</p>
+    {% else %}
+        <section id="home-page-catalogue">
+            <h3>Recently added destinations:</h3>
+            {% for destination in destinations %}
+                <div class="home-page-destination-card">
+                    <div class="home-page-image-wrap">
+                        <!-- destination image -->
+                        <img src="{{ destination.destination_image }}"
+                             alt="Destinations">
+                    </div>
+                    <!-- destination name -->
+                    <h3>{{ destination.name }}</h3>
+                    <!-- destination type -->
+
+                </div>
+            {% endfor %}
             <div class="details-buttons">
                 <!-- destination details button -->
-                <a href="#" class="details-btn">See more...</a>
+                <a href="{% url 'browse destinations' %}" class="details-btn">Browse more...</a>
             </div>
-        </div>
 
-    </section>
+        </section>
+    {% endif %}
 
-    <!-- headlines -->
-    <p class="no-articles">No articles yet</p>
-    <!-- Display div "article" with information about every article (if any)-->
-    <section id="catalogue">
-        <!-- first article-->
-        <div class="article-card">
-            <div class="image-wrap">
-                <!-- article image -->
-                <img src="{% static 'images/default-profile-picture.png' %}"
-                     alt="Articles">
-            </div>
-            <!-- Article headline -->
-            <h1>Article Title</h1>
-            <p>Article text limited to 50 characters...</p>
+    {% if not articles %}
+        <p class="no-articles">No articles yet</p>
+    {% else %}
+        <section id="home-page-catalogue">
+            <h3>Last added article:</h3>
+            {% for article in articles %}
+                <div class="home-page-article-card">
+                    <div class="home-page-image-wrap">
+                        <!-- article image -->
+                        <img src="{{ article.article_image }}"
+                             alt="Articles">
+                    </div>
+                    <!-- Article headline -->
+                    <h1>{{ article.title }}</h1>
+                    <p>{{ article.body|truncatechars:250 }}</p>
+
+                </div>
+            {% endfor %}
             <div class="details-buttons">
                 <!-- articles details button -->
-                <a href="#" class="details-btn">See more...</a>
+                <a href="{% url 'browse articles' %}" class="details-btn">Browse more...</a>
             </div>
-        </div>
+        </section>
+    {% endif %}
 
-    </section>
+    {% if not photos %}
+        <p class="no-articles">No photos yet</p>
+    {% else %}
+        <section id="home-page-catalogue">
+            <h3>Recently added photos by users:</h3>
+            {% for photo in photos %}
+                <div class="home-page-photo-card">
+                    <div class="home-page-image-wrap">
+                        <!-- article image -->
+                        <img src="{{ photo.photo }}"
+                             alt="Photos">
+                    </div>
+
+                </div>
+            {% endfor %}
+            <div class="details-buttons">
+                <!-- articles details button -->
+                <a href="{% url 'browse gallery' %}" class="details-btn">Browse more...</a>
+            </div>
+        </section>
+    {% endif %}
 
 {% endblock %}

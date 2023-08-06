@@ -19,9 +19,9 @@
                         <img src="{{ destination.destination_image }}" alt="{{ destination.name }}">
                     </div>
                     <div class="destination-info">
-                        <h3>Name: {{ destination.name }}</h3>
-                        <h3>Type: {{ destination.type }}</h3>
-                        <h3>Author: {{ destination.author }}</h3>
+                        <h3>{{ destination.name }}</h3>
+                        <h4>Type: {{ destination.type }}</h4>
+                        <h4>Author: {{ destination.author }}</h4>
                     </div>
                     <div class="details-buttons">
                         <a href="{% url 'destination details' destination.slug %}" class="details-btn">Read more...</a>

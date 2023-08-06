@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-    background-image: url(../images/OIP.jpg);
+    background-image: url(../images/wp.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -20,33 +20,37 @@ nav {
     align-items: center;
     background-color: #b8e0c9;
     padding: 10px;
+    border-radius: 15px;
 }
 
 nav a {
-    color: #605d5d;
+    color: #022d4d;
     text-decoration: none;
     padding: 10px;
 }
 
 nav a:hover {
-    background-color: #bacafa;
+    background-color: #c8fcd1;
+    border-radius: 15px;
 }
 
 /* Destination and Article Card Styling */
 section#catalogue {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     justify-content: space-between;
 }
 
 .destination-card,
 .article-card {
     width: 300px;
-    padding: 15px;
-    margin-bottom: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-left: 30px;
     box-shadow: 0 2px 6px rgba(93, 115, 97, 0.31);
-    border-radius: 5px;
-    background-color: rgba(149, 222, 184, 0.66);
+    border-radius: 15px;
+    background-color: rgba(94, 164, 232, 0.66);
 }
 
 .image-wrap {
@@ -59,18 +63,25 @@ section#catalogue {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 .destination-info h3,
 .article-info h1 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #625353;
+    color: #022d4d;
+}
+
+.destination-info h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #022d4d;
 }
 
 .article-info h4 {
     font-size: 14px;
-    color: #f8f7f7;
+    color: #022d4d;
 }
 
 /* Details Button Styling */
@@ -79,7 +90,7 @@ section#catalogue {
     background-color: #b8e0c9;
     color: #fff;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 15px;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
 }
@@ -92,14 +103,14 @@ section#catalogue {
 .profile-info {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-info img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 25%;
+    margin-right: 40px;
     object-fit: cover;
 }
 
@@ -108,9 +119,10 @@ section#catalogue {
 }
 
 .profile-info p {
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 5px;
+    font-size: 25px;
     font-style: oblique;
+    color: #022d4d;
 }
 
 /* Profile Actions Styling */
@@ -140,23 +152,26 @@ section#catalogue {
 .articles-by-user h3,
 .photos-by-user h3 {
     margin-bottom: 10px;
+    color: #022d4d;
 }
 
 .destinations-by-user ul,
 .articles-by-user ul,
 .photos-by-user ul {
     list-style: inside;
+    color: #022d4d;
 }
 
 .destinations-by-user li,
 .articles-by-user li {
     margin-bottom: 5px;
+    color: #022d4d;
 }
 
 .destinations-by-user a,
 .articles-by-user a {
     text-decoration: none;
-    color: #043813;
+    color: #022d4d;
 }
 
 /* Photos Styling - Updated for Grid Layout */
@@ -194,6 +209,7 @@ section#catalogue {
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: #022d4d;
 }
 
 form input[type="text"],
@@ -236,9 +252,10 @@ form#add-photo-page {
 }
 
 .logo {
-    width: 45px;
+    width: 55px;
     height: 45px;
-    margin-right: 1px;
+    margin-right: 5px;
+    border-radius: 15px;
 }
 
 /* CSS for Article Image */
@@ -248,14 +265,21 @@ form#add-photo-page {
     height: 300px;
     margin-right: 20px;
     object-fit: cover;
+    border-radius: 15px;
+}
+
+.destination-and-article-details p {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #022d4d;
 }
 
 /* CSS for Article Title */
 .article-title {
     font-size: 24px;
     margin-bottom: 10px;
-    color: whitesmoke;
-    text-align: center;
+    color: #022d4d;
+    text-align: start;
 }
 
 /* CSS for Article Actions and Destination Actions */
@@ -277,12 +301,18 @@ form#add-photo-page {
 }
 
 /* CSS for Tagged Destinations */
+.article-tagged-destinations {
+    color: #022d4d;
+}
+
 .tagged-destinations {
     list-style: circle;
+    color: #022d4d;
 }
 
 .tagged-destinations li {
     margin-bottom: 20px;
+    color: #022d4d;
 }
 
 .tagged-destinations img {
@@ -294,7 +324,7 @@ form#add-photo-page {
 /* CSS for Destination Name */
 .destination-name {
     text-decoration: none;
-    color: #333;
+    color: #022d4d;
 }
 
 
@@ -454,6 +484,7 @@ form#add-photo-page {
 .photo_detail_image-container img {
     width: 100%;
     height: auto;
+    border-radius: 15px;
 }
 
 .photo_detail_image-container p {
@@ -566,6 +597,7 @@ section#catalogue {
 .destination-related-photos h3 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: #022d4d;
 }
 
 .photo-grid {
@@ -587,6 +619,7 @@ section#catalogue {
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s ease-in-out;
+    border-radius: 5px;
 }
 
 .photo-grid a:hover img {
@@ -603,10 +636,12 @@ section#catalogue {
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s ease-in-out;
+    border-radius: 5px;
 }
 
 .photo-card a:hover img {
     transform: scale(1.1); /* Optional: Add a slight zoom effect on hover */
+    border-radius: 5px;
 }
 
 /* Optional: Add a border or box-shadow effect to the photos */
@@ -614,3 +649,57 @@ section#catalogue {
     /* Add your border or box-shadow styles here */
 }
 
+
+#home-page-catalogue {
+    margin-bottom: 20px;
+}
+
+/* No Items Styling */
+p.no-destinations,
+p.no-articles,
+p.no-photos {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #022d4d;
+}
+
+/* Catalogue Items Styling */
+.home-page-destination-card,
+.home-page-article-card,
+.home-page-photo-card {
+    display: grid;
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(93, 115, 97, 0.31);
+    border-radius: 15px;
+    background-color: rgba(94, 164, 232, 0.66);
+}
+
+.home-page-image-wrap {
+    width: 100%;
+    height: 200px; /* You can adjust the height as needed */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.home-page-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will make the image fit within the container */
+}
+
+.home-page-destination-card h3,
+.home-page-article-card h1 {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #022d4d;
+    text-align: center;
+}
+
+.home-page-article-card p {
+    font-size: 16px;
+    color: #022d4d;
+}

@@ -19,18 +19,20 @@
             </a>
         </div>
     {% endif %}
-    <div class="destination-info">
+    <div class="destination-and-article-details">
         <div>
             <p>Name: {{ destination.name }}</p>
             <p>Type: {{ destination.type }}</p>
             <p>Location: {{ destination.location }}</p>
             <p>Description: {{ destination.description }}</p>
+            <p>Author: {{ destination.author }}</p>
             <p>Created on: {{ destination.created }}</p>
             <p>Last Update: {{ destination.updated }}</p>
         </div>
     </div>
 
     {% if related_photos %}
+
         <div class="destination-related-photos">
             <h3>User-submitted photos:</h3>
             <div class="photo-grid">

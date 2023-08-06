@@ -18,7 +18,7 @@
             </a>
         </div>
     {% endif %}
-    <div class="article-info">
+    <div class="destination-and-article-details">
 
         <div>
             <p>{{ article.body }}</p>
@@ -29,8 +29,9 @@
 
 
     </div>
-    <h2>Tagged Destinations:</h2>
+    <h2 class="article-tagged-destinations">Tagged Destinations:</h2>
     <ul class="tagged-destinations">
+
         {% for tag in article.tagged_destinations.all %}
             <li>
                 <div>

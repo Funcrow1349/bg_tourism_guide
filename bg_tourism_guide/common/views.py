@@ -5,7 +5,17 @@ from bg_tourism_guide.photos.models import Photo
 
 
 def index_view(request):
-    return render(request, 'common/index.html')
+    photos = Photo.objects.all()[0:3]
+    destinations = Destination.objects.all()[0:3]
+    articles = Article.objects.all()[0:1]
+
+    context = {
+        'photos': photos,
+        'destinations': destinations,
+        'articles': articles,
+    }
+
+    return render(request, 'common/index.html', context)
 
 
 def gallery_view(request):

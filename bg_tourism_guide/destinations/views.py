@@ -22,7 +22,7 @@ class DestinationDetailsView(DetailView):
 class AddDestination(LoginRequiredMixin, CreateView):
     template_name = 'destinations/add_destination.html'
     form_class = DestinationForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('browse destinations')
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -5,12 +5,13 @@
         <img src="{{ article.article_image }}" alt="Profile" class="article-image">
     </div>
 
-    {% if request.user == article.author %}
+    {% if request.user == article.author or request.user.is_staff %}
         <div class="article-actions">
-            <!-- Edit button -->
-            <a href="{% url 'edit article' article.slug %}">
-                <button class="btn btn-edit">Edit</button>
-            </a>
+            {% if request.user == article.author %}
+                <a href="{% url 'edit article' article.slug %}">
+                    <button class="btn btn-edit">Edit</button>
+                </a>
+            {% endif %}
 
             <!-- Delete button -->
             <a href="{% url 'delete article' article.slug %}">
@@ -22,7 +23,7 @@
 
         <div>
             <p>{{ article.body }}</p>
-            <p>Author: {{ article.author }}</p>
+            <p>Author: <a href="{% url 'user details' article.author.id %}">{{ article.author }}</a></p>
             <p>Created on: {{ article.created }}</p>
             <p>Last Update: {{ article.updated }}</p>
         </div>

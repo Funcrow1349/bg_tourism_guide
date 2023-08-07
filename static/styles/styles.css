@@ -45,6 +45,7 @@ section#catalogue {
 .article-card {
     width: 300px;
     padding: 5px;
+    margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 30px;
     margin-left: 30px;
@@ -585,8 +586,9 @@ section#catalogue {
 }
 
 .photo-card {
-    width: calc(33.33% - 20px); /* Each photo card takes up one-third of the container width */
-    margin: 10px; /* Margin to create space between photo cards */
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    margin-top: 15px;
 }
 
 /* Additional CSS for Grid of User-Submitted Photos */
@@ -650,31 +652,34 @@ section#catalogue {
 }
 
 
-#home-page-catalogue {
-    margin-bottom: 20px;
-}
-
-/* No Items Styling */
-p.no-destinations,
-p.no-articles,
-p.no-photos {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 20px;
-    color: #022d4d;
+/* Container for each section */
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* Catalogue Items Styling */
 .home-page-destination-card,
-.home-page-article-card,
-.home-page-photo-card {
-    display: grid;
+.home-page-article-card {
     width: 300px;
     padding: 5px;
     margin-bottom: 10px;
     box-shadow: 0 2px 6px rgba(93, 115, 97, 0.31);
     border-radius: 15px;
     background-color: rgba(94, 164, 232, 0.66);
+}
+
+.home-page-photo-card {
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(93, 115, 97, 0.31);
+}
+
+.home-page-photo-card a:hover img {
+    transform: scale(1.1); /* Optional: Add a slight zoom effect on hover */
+    border-radius: 15px;
 }
 
 .home-page-image-wrap {
@@ -687,7 +692,8 @@ p.no-photos {
 .home-page-image-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This will make the image fit within the container */
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
 }
 
 .home-page-destination-card h3,
@@ -702,4 +708,87 @@ p.no-photos {
 .home-page-article-card p {
     font-size: 16px;
     color: #022d4d;
+}
+
+form.destination-filter-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form.destination-filter-form label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+form.destination-filter-form select {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    margin-right: 20px;
+}
+
+form.destination-filter-form button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+form.destination-filter-form button:hover {
+    background-color: #2980b9;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.step-links {
+    display: flex;
+    align-items: center;
+}
+
+.step-links a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #022d4d;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.step-links a:hover {
+    background-color: #f2f2f2;
+}
+
+.current {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Adjust the styles for the first and last links */
+.step-links a:first-child,
+.step-links a:last-child {
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #022d4d;
+    background-color: #f2f2f2;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.step-links a:first-child:hover,
+.step-links a:last-child:hover {
+    background-color: #e0e0e0;
 }

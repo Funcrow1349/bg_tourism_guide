@@ -3,7 +3,7 @@
     <div class="photo_detail_image-container">
         <img src="{{ photo.photo }}" alt="">
         <p>Location: {{ photo.location }} | Date of publication: {{ photo.date_of_publication }} |
-            Author: {{ photo.uploaded_by }}</p>
+            Author: <a href="{% url 'user details' photo.uploaded_by.id %}">{{ photo.uploaded_by }}</a></p>
         {% if tags %}
             <h3>Tagged destinations: </h3>
             {% for destination in tags %}

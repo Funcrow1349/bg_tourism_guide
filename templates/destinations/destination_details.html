@@ -6,12 +6,12 @@
     </div>
 
 
-    {% if request.user == destination.author %}
+    {% if request.user == destination.author or request.user.is_staff %}
         <div class="destination-actions">
-            <!-- Edit button -->
+            {% if request.user == destination.author %}
             <a href="{% url 'edit destination' destination.slug %}">
                 <button>Edit</button>
-            </a>
+            </a>{% endif %}
 
             <!-- Delete button -->
             <a href="{% url 'delete destination' destination.slug %}">
@@ -25,7 +25,7 @@
             <p>Type: {{ destination.type }}</p>
             <p>Location: {{ destination.location }}</p>
             <p>Description: {{ destination.description }}</p>
-            <p>Author: {{ destination.author }}</p>
+            <p>Author: <a href="{% url 'user details' destination.author.id %}">{{ destination.author }}</a></p>
             <p>Created on: {{ destination.created }}</p>
             <p>Last Update: {{ destination.updated }}</p>
         </div>

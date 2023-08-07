@@ -9,6 +9,21 @@
         <hr>
     {% endif %}
 
+    <form action="{% url 'browse destinations' %}" method="get" class="destination-filter-form">
+        <label for="destination-type">Filter by Type:</label>
+        <select name="type" id="destination-type">
+            <option value="" {% if not selected_type %}selected{% endif %}>All</option>
+            <option value="Natural Site" {% if selected_type == "Natural Site" %}selected{% endif %}>Natural Site</option>
+            <option value="History and Heritage" {% if selected_type == "History and Heritage" %}selected{% endif %}>History and Heritage</option>
+            <option value="Beach area" {% if selected_type == "Beach area" %}selected{% endif %}>Beach area</option>
+            <option value="Winter Sports" {% if selected_type == "Winter Sports" %}selected{% endif %}>Winter Sports</option>
+            <option value="Art and Culture" {% if selected_type == "Art and Culture" %}selected{% endif %}>Art and Culture</option>
+            <option value="Event" {% if selected_type == "Event" %}selected{% endif %}>Event</option>
+            <option value="Architecture" {% if selected_type == "Architecture" %}selected{% endif %}>Architecture</option>
+        </select>
+        <button type="submit">Apply Filter</button>
+    </form>
+
     {% if not destinations %}
         <h1 class="no-destinations">No destinations yet</h1>
     {% else %}
@@ -29,5 +44,24 @@
                 </div>
             {% endfor %}
         </section>
+        <!-- Pagination controls -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if destinations.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ destinations.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ destinations.number }} of {{ destinations.paginator.num_pages }}.
+            </span>
+
+            {% if destinations.has_next %}
+                <a href="?page={{ destinations.next_page_number }}">next</a>
+                <a href="?page={{ destinations.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
     {% endif %}
 {% endblock %}

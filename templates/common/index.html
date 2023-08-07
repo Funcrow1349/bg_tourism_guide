@@ -7,22 +7,22 @@
     {% else %}
         <section id="home-page-catalogue">
             <h3>Recently added destinations:</h3>
-            {% for destination in destinations %}
-                <div class="home-page-destination-card">
-                    <div class="home-page-image-wrap">
-                        <!-- destination image -->
-                        <img src="{{ destination.destination_image }}"
-                             alt="Destinations">
-                    </div>
-                    <!-- destination name -->
-                    <h3>{{ destination.name }}</h3>
-                    <!-- destination type -->
+            <div class="item-container">
+                {% for destination in destinations %}
+                    <div class="home-page-destination-card">
+                        <a href="{% url 'destination details' destination.slug %}">
+                            <div class="home-page-image-wrap">
+                                <!-- destination image -->
+                                <img src="{{ destination.destination_image }}"
+                                     alt="Destinations">
+                            </div>
+                        </a>
+                        <!-- destination name -->
+                        <h3>{{ destination.name }}</h3>
+                        <!-- destination type -->
 
-                </div>
-            {% endfor %}
-            <div class="details-buttons">
-                <!-- destination details button -->
-                <a href="{% url 'browse destinations' %}" class="details-btn">Browse more...</a>
+                    </div>
+                {% endfor %}
             </div>
 
         </section>
@@ -32,24 +32,26 @@
         <p class="no-articles">No articles yet</p>
     {% else %}
         <section id="home-page-catalogue">
-            <h3>Last added article:</h3>
-            {% for article in articles %}
-                <div class="home-page-article-card">
-                    <div class="home-page-image-wrap">
-                        <!-- article image -->
-                        <img src="{{ article.article_image }}"
-                             alt="Articles">
-                    </div>
-                    <!-- Article headline -->
-                    <h1>{{ article.title }}</h1>
-                    <p>{{ article.body|truncatechars:250 }}</p>
+            <h3>Recently added articles:</h3>
+            <div class="item-container">
+                {% for article in articles %}
+                    <div class="home-page-article-card">
+                        <a href="{% url 'article details' article.slug %}">
+                            <div class="home-page-image-wrap">
+                                <!-- article image -->
+                                <img src="{{ article.article_image }}"
+                                     alt="Articles">
+                            </div>
+                        </a>
 
-                </div>
-            {% endfor %}
-            <div class="details-buttons">
-                <!-- articles details button -->
-                <a href="{% url 'browse articles' %}" class="details-btn">Browse more...</a>
+                        <!-- Article headline -->
+                        <h1>{{ article.title }}</h1>
+                        <p>{{ article.body|truncatechars:150 }}</p>
+
+                    </div>
+                {% endfor %}
             </div>
+
         </section>
     {% endif %}
 
@@ -58,20 +60,21 @@
     {% else %}
         <section id="home-page-catalogue">
             <h3>Recently added photos by users:</h3>
-            {% for photo in photos %}
-                <div class="home-page-photo-card">
-                    <div class="home-page-image-wrap">
-                        <!-- article image -->
-                        <img src="{{ photo.photo }}"
-                             alt="Photos">
-                    </div>
+            <div class="item-container">
+                {% for photo in photos %}
+                    <div class="home-page-photo-card">
+                        <div class="home-page-image-wrap">
+                            <a href="{% url 'photo page' photo.id %}">
+                                <img src="{{ photo.photo }}"
+                                     alt="Photos">
+                            </a>
 
-                </div>
-            {% endfor %}
-            <div class="details-buttons">
-                <!-- articles details button -->
-                <a href="{% url 'browse gallery' %}" class="details-btn">Browse more...</a>
+                        </div>
+
+                    </div>
+                {% endfor %}
             </div>
+
         </section>
     {% endif %}
 

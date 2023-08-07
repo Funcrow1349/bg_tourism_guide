@@ -22,4 +22,4 @@ class Photo(models.Model):
     uploaded_by = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['date_of_publication']
+        ordering = ['-date_of_publication']

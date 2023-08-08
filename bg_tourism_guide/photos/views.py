@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DeleteView
 
 from bg_tourism_guide.common.forms import CommentForm
@@ -11,7 +11,6 @@ from bg_tourism_guide.photos.models import Photo
 class AddPhoto(LoginRequiredMixin, CreateView):
     template_name = 'photos/create_photo.html'
     form_class = PhotoCreateForm
-    success_url = reverse_lazy('browse gallery')
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -26,11 +25,14 @@ class AddPhoto(LoginRequiredMixin, CreateView):
         form.instance.uploaded_by = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('photo page', kwargs={'pk': self.object.id})
+
 
 class DeletePhoto(LoginRequiredMixin, DeleteView):
     model = Photo
     template_name = 'photos/delete_photo.html'
-    success_url = reverse_lazy('browse_gallery')
+    success_url = reverse_lazy('browse gallery')
 
     def get_queryset(self):
         return self.model.objects.filter(uploaded_by=self.request.user)

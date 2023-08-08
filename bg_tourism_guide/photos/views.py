@@ -34,9 +34,6 @@ class DeletePhoto(LoginRequiredMixin, DeleteView):
     template_name = 'photos/delete_photo.html'
     success_url = reverse_lazy('browse gallery')
 
-    # def get_queryset(self):
-    #     return self.model.objects.filter(uploaded_by=self.request.user)
-
 
 def photo_page(request, pk):
     photo = Photo.objects.get(pk=pk)

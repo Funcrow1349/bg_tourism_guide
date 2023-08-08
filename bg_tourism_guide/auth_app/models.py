@@ -7,6 +7,8 @@ from bg_tourism_guide.auth_app.validators import is_only_letters, starts_with_up
 class CustomUser(AbstractUser):
     NAME_MAX_LENGTH = 30
     NAME_MIN_LENGTH = 2
+    USERNAME_MAX_LENGTH = 18
+    USERNAME_MIN_LENGTH = 2
     GENDERS = (
         ('Male', 'MALE'),
         ('Female', 'FEMALE'),
@@ -30,10 +32,16 @@ class CustomUser(AbstractUser):
         ],
     )
 
-    username = models.CharField(max_length=15)
+    username = models.CharField(
+        max_length=USERNAME_MAX_LENGTH,
+        validators=[
+            MinLengthValidator(USERNAME_MIN_LENGTH),
+            starts_with_uppercase,
+        ],
+    )
     email = models.EmailField(unique=True)
-    gender = models.CharField(max_length=15, choices=GENDERS, null=True,)
-    bio = models.TextField(null=True, blank=True,)
+    gender = models.CharField(max_length=15, choices=GENDERS, null=True, )
+    bio = models.TextField(null=True, blank=True, )
     profile_picture = models.ImageField(null=True, default="default-profile-picture.png")
 
     USERNAME_FIELD = 'email'

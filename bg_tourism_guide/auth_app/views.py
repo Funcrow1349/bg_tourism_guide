@@ -1,6 +1,9 @@
+import os
+
+from django.conf import settings
 from django.contrib.auth import login, views
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from bg_tourism_guide.auth_app.forms import CustomUserCreationForm, UserEditForm
@@ -47,6 +50,14 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         obj = get_object_or_404(queryset, pk=self.request.user.pk)
         return obj
 
+    def form_valid(self, form):
+        profile_picture = self.request.FILES.get('profile_picture')
+        if profile_picture:
+            user = form.save(commit=False)
+            filename = f"{user.username}_profile_picture{os.path.splitext(profile_picture.name)[1]}"
+            user.profile_picture.save(filename, profile_picture)
+        return super().form_valid(form)
+
 
 class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = CustomUser
@@ -66,7 +77,7 @@ class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         user.destination_set.all().delete()
         user.photo_set.all().delete()
         user.article_set.all().delete()
-        # user.comment_set.all().delete()
+        user.comment_set.all().delete()
 
         return super().delete(request, *args, **kwargs)
 

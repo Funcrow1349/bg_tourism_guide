@@ -43,6 +43,7 @@ def photo_page(request, pk):
     form = CommentForm(request.POST or None)
     comments = photo.comment_set.all()
     tags = photo.tagged_destinations.all()
+
     if form.is_valid():
         comment = form.save(commit=False)
         comment.to_photo = photo

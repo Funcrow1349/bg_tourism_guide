@@ -867,3 +867,8 @@ form.destination-filter-form button:hover {
 .photo_detail_image-container button:hover {
     background-color: #2980b9;
 }
+
+.photo_detail_image-container h2 {
+    color: #022d4d;
+    text-align: center;
+}

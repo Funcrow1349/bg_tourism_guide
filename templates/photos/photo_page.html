@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="photo_detail_image-container">
+        <h2>{{ photo.description }}</h2>
+
         <img src="{{ photo.photo }}" alt="">
         <p>Location: {{ photo.location }} | Date of publication: {{ photo.date_of_publication }} |
             Author: <a href="{% url 'user details' photo.uploaded_by.id %}">{{ photo.uploaded_by }}</a></p>
@@ -40,4 +42,5 @@
             </div>
         {% endif %}
     </div>
+
 {% endblock %}

@@ -11,7 +11,8 @@
             {% if request.user == destination.author %}
             <a href="{% url 'edit destination' destination.slug %}">
                 <button>Edit</button>
-            </a>{% endif %}
+            </a>
+            {% endif %}
 
             <!-- Delete button -->
             <a href="{% url 'delete destination' destination.slug %}">

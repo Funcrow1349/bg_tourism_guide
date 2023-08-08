@@ -1,4 +1,3 @@
-/* Basic Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -13,7 +12,6 @@ body {
     padding: 20px;
 }
 
-/* Navigation Bar Styling */
 nav {
     display: flex;
     justify-content: space-between;
@@ -34,10 +32,8 @@ nav a:hover {
     border-radius: 15px;
 }
 
-/* Destination and Article Card Styling */
 section#catalogue {
     display: flex;
-    /*flex-wrap: wrap;*/
     justify-content: space-between;
 }
 
@@ -85,7 +81,6 @@ section#catalogue {
     color: #022d4d;
 }
 
-/* Details Button Styling */
 .details-buttons .details-btn {
     display: inline-block;
     background-color: #b8e0c9;
@@ -100,7 +95,6 @@ section#catalogue {
     background-color: #2980b9;
 }
 
-/* Profile Info Styling */
 .profile-info {
     display: flex;
     align-items: center;
@@ -126,7 +120,6 @@ section#catalogue {
     color: #022d4d;
 }
 
-/* Profile Actions Styling */
 .profile-actions {
     display: flex;
     margin-top: 10px;
@@ -142,7 +135,6 @@ section#catalogue {
     margin-right: 10px;
 }
 
-/* Destinations and Articles Styling */
 .destinations-by-user,
 .articles-by-user,
 .photos-by-user {
@@ -175,7 +167,6 @@ section#catalogue {
     color: #022d4d;
 }
 
-/* Photos Styling - Updated for Grid Layout */
 .photos-by-user h3 {
     margin-bottom: 10px;
 }
@@ -197,7 +188,6 @@ section#catalogue {
     object-fit: cover;
 }
 
-/* Form Styling */
 .container {
     max-width: 400px;
     margin: 0 auto;
@@ -239,7 +229,6 @@ form .btn.submit:hover {
     background-color: #2980b9;
 }
 
-/* Additional CSS for Centering Form Elements */
 form#register-page,
 form#edit-profile-page,
 form#add-destination-page,
@@ -259,7 +248,6 @@ form#add-photo-page {
     border-radius: 15px;
 }
 
-/* CSS for Article Image */
 .article-image,
 .destination-image {
     width: 500px;
@@ -275,7 +263,6 @@ form#add-photo-page {
     color: #022d4d;
 }
 
-/* CSS for Article Title */
 .article-title {
     font-size: 24px;
     margin-bottom: 10px;
@@ -283,7 +270,6 @@ form#add-photo-page {
     text-align: start;
 }
 
-/* CSS for Article Actions and Destination Actions */
 .article-actions,
 .destination-actions {
     display: flex;
@@ -301,7 +287,6 @@ form#add-photo-page {
     margin-right: 10px;
 }
 
-/* CSS for Tagged Destinations */
 .article-tagged-destinations {
     color: #022d4d;
 }
@@ -322,7 +307,6 @@ form#add-photo-page {
 }
 
 
-/* CSS for Destination Name */
 .destination-name {
     text-decoration: none;
     color: #022d4d;
@@ -476,6 +460,55 @@ form#add-photo-page {
     background-color: #5a6268;
 }
 
+#delete-photo-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#delete-photo-page h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#delete-photo-page p {
+    margin-bottom: 15px;
+}
+
+#delete-photo-page form input[type="submit"],
+#delete-photo-page form a.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#delete-photo-page form input[type="submit"].btn-danger {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+}
+
+#delete-photo-page form input[type="submit"].btn-danger:hover {
+    background-color: #c9302c;
+}
+
+#delete-photo-page form a.btn.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    margin-left: 10px;
+}
+
+#delete-photo-page form a.btn.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
 
 .photo_detail_image-container {
     max-width: 100%;
@@ -502,8 +535,8 @@ form#add-photo-page {
 
 .comment-wrapper {
     margin-top: 20px;
-    border-top: 1px solid #ccc; /* Add a border above the comments */
-    padding-top: 10px; /* Add some padding above the comments */
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
 }
 
 .comment-wrapper h3 {
@@ -532,7 +565,6 @@ form#add-photo-page {
     border-top: 1px solid #090909;
 }
 
-/* Style for Comment Form */
 .photo_detail_page_add_comment-container form {
     margin-top: 20px;
     max-width: 1170px;
@@ -578,11 +610,13 @@ form#add-photo-page {
     background-color: #2980b9;
 }
 
+
+
 section#catalogue {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: -10px; /* Negative margin to remove spacing between photo cards */
+    margin: -10px;
 }
 
 .photo-card {
@@ -591,7 +625,6 @@ section#catalogue {
     margin-top: 15px;
 }
 
-/* Additional CSS for Grid of User-Submitted Photos */
 .destination-related-photos {
     margin-top: 30px;
 }
@@ -604,8 +637,8 @@ section#catalogue {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-    gap: 10px; /* Adjust the gap between photos as needed */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .photo-grid a {
@@ -625,12 +658,10 @@ section#catalogue {
 }
 
 .photo-grid a:hover img {
-    transform: scale(1.1); /* Optional: Add a slight zoom effect on hover */
+    transform: scale(1.1);
 }
 
-/* Optional: Add a border or box-shadow effect to the photos */
 .photo-grid img {
-    /* Add your border or box-shadow styles here */
 }
 
 .photo-card img {
@@ -642,24 +673,20 @@ section#catalogue {
 }
 
 .photo-card a:hover img {
-    transform: scale(1.1); /* Optional: Add a slight zoom effect on hover */
+    transform: scale(1.1);
     border-radius: 5px;
 }
 
-/* Optional: Add a border or box-shadow effect to the photos */
 .photo-card img {
-    /* Add your border or box-shadow styles here */
 }
 
 
-/* Container for each section */
 .item-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-/* Catalogue Items Styling */
 .home-page-destination-card,
 .home-page-article-card {
     width: 300px;
@@ -678,13 +705,13 @@ section#catalogue {
 }
 
 .home-page-photo-card a:hover img {
-    transform: scale(1.1); /* Optional: Add a slight zoom effect on hover */
+    transform: scale(1.1);
     border-radius: 15px;
 }
 
 .home-page-image-wrap {
     width: 100%;
-    height: 200px; /* You can adjust the height as needed */
+    height: 200px;
     overflow: hidden;
     border-radius: 15px;
 }
@@ -775,7 +802,6 @@ form.destination-filter-form button:hover {
     font-weight: bold;
 }
 
-/* Adjust the styles for the first and last links */
 .step-links a:first-child,
 .step-links a:last-child {
     border-radius: 5px;
@@ -791,4 +817,53 @@ form.destination-filter-form button:hover {
 .step-links a:first-child:hover,
 .step-links a:last-child:hover {
     background-color: #e0e0e0;
+}
+
+.introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.centered-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #b8e0c9;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(93, 115, 97, 0.31);
+}
+
+.introduction h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #022d4d;
+}
+
+.introduction p {
+    font-size: 16px;
+    margin: 0;
+    color: #022d4d;
+    text-align: center;
+}
+
+.introduction h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #022d4d;
+}
+
+.photo_detail_image-container button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.photo_detail_image-container button:hover {
+    background-color: #2980b9;
 }

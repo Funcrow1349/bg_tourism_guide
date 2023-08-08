@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="profile-info">
-        <img src="{% static 'images/default-profile-picture.png' %}" alt="Profile">
+        <img src="{{ user.profile_picture.url }}" alt="Profile">
         <div>
             <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
             <p>Email: {{ user.email }}</p>

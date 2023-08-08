@@ -4,6 +4,11 @@
         <img src="{{ photo.photo }}" alt="">
         <p>Location: {{ photo.location }} | Date of publication: {{ photo.date_of_publication }} |
             Author: <a href="{% url 'user details' photo.uploaded_by.id %}">{{ photo.uploaded_by }}</a></p>
+        {% if request.user == photo.uploaded_by or request.user.is_staff %}
+            <a href="{% url 'delete photo' photo.id %}">
+                <button>Delete</button>
+            </a>
+        {% endif %}
         {% if tags %}
             <h3>Tagged destinations: </h3>
             {% for destination in tags %}

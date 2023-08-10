@@ -76,3 +76,7 @@ def articles_view(request):
         page_articles = paginator.page(paginator.num_pages)
 
     return render(request, 'common/browse_articles.html', {'articles': page_articles})
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)

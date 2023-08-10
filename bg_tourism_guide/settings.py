@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-lb*i6=noigls80*n#q#i=z%y%w+3(-bga%tpjuw%jm$j$1df4$
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,6 +51,8 @@ TEMPLATES = [
         },
     },
 ]
+
+handler404 = 'common.views.custom_404'
 
 WSGI_APPLICATION = 'bg_tourism_guide.wsgi.application'
 

@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import MinLengthValidator
 from django.db import models
-
 from bg_tourism_guide.auth_app.validators import starts_with_uppercase
 from bg_tourism_guide.destinations.models import Destination
 

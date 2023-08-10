@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from bg_tourism_guide.articles.models import Article
 
 

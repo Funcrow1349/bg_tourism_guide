@@ -1,6 +1,4 @@
 import os
-
-from django.conf import settings
 from django.contrib.auth import login, views
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404

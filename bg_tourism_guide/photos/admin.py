@@ -4,7 +4,7 @@ from bg_tourism_guide.photos.models import Photo
 
 
 class CustomPhotoAdmin(admin.ModelAdmin):
-    list_display = ('photo', 'uploaded_by', 'date_of_publication', 'location')
+    list_display = ('description', 'uploaded_by', 'date_of_publication', 'location')
     list_filter = ('uploaded_by', 'date_of_publication', 'location')
     search_fields = ('uploaded_by', 'location', 'tagged_destinations')
     ordering = ('date_of_publication',)

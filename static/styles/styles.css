@@ -872,3 +872,36 @@ form.destination-filter-form button:hover {
     color: #022d4d;
     text-align: center;
 }
+
+.site-footer {
+    background-color: #022d4d;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 15px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.site-footer p {
+    font-size: 14px;
+}

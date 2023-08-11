@@ -10,6 +10,7 @@ class CustomDestinationAdmin(admin.ModelAdmin):
     ordering = ('created',)
     exclude = ('author',)
 
+    # automatically set author upon creation from the Django admin
     def save_model(self, request, obj, form, change):
         if not obj.author:
             obj.author = request.user

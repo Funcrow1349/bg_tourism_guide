@@ -10,6 +10,7 @@ class CustomPhotoAdmin(admin.ModelAdmin):
     ordering = ('date_of_publication',)
     exclude = ('uploaded_by',)
 
+    # automatically set author upon creation from the Django admin
     def save_model(self, request, obj, form, change):
         if not obj.author:
             obj.author = request.user

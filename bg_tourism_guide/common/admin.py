@@ -9,6 +9,7 @@ class CustomCommentAdmin(admin.ModelAdmin):
     ordering = ('date_time_of_publication',)
     exclude = ('comment_author',)
 
+    # automatically set comment author in Django admin
     def save_model(self, request, obj, form, change):
         if not obj.comment_author:
             obj.comment_author = request.user

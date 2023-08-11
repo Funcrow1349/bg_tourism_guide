@@ -2,19 +2,20 @@
 {% load static %}
 {% block content %}
     <div class="introduction">
-    <div class="centered-content">
-        <h1>Welcome to the Bulgarian Tourist Guide!</h1>
-        <h1>Unveil the Hidden Gem of the Balkans!</h1>
-        <p> Experience the allure of Bulgaria, a breathtaking land brimming with diverse landscapes, rich history, and warm
-            hospitality. From the magnificent peaks of the Rila Mountains to the sun-kissed beaches of the Black Sea, our
-            country boasts a captivating blend of nature, culture, and adventure. Discover enchanting medieval towns nestled
-            amidst rolling hills, explore ancient ruins that whisper tales of civilizations past!</p>
+        <div class="centered-content">
+            <h1>Welcome to the Bulgarian Tourist Guide!</h1>
+            <h1>Unveil the Hidden Gem of the Balkans!</h1>
+            <p> Experience the allure of Bulgaria, a breathtaking land brimming with diverse landscapes, rich history,
+                and warm
+                hospitality. From the magnificent peaks of the Rila Mountains to the sun-kissed beaches of the Black
+                Sea, our
+                country boasts a captivating blend of nature, culture, and adventure. Discover enchanting medieval towns
+                nestled
+                amidst rolling hills, explore ancient ruins that whisper tales of civilizations past!</p>
 
-        <h2>Choose your adventure now!</h2>
+            <h2>Choose your adventure now!</h2>
+        </div>
     </div>
-</div>
-
-
 
     {% if not destinations %}
         <p class="no-destinations">No destinations yet</p>
@@ -26,14 +27,11 @@
                     <div class="home-page-destination-card">
                         <a href="{% url 'destination details' destination.slug %}">
                             <div class="home-page-image-wrap">
-                                <!-- destination image -->
                                 <img src="{{ destination.destination_image }}"
                                      alt="Destinations">
                             </div>
                         </a>
-                        <!-- destination name -->
                         <h3>{{ destination.name }}</h3>
-                        <!-- destination type -->
 
                     </div>
                 {% endfor %}
@@ -52,13 +50,11 @@
                     <div class="home-page-article-card">
                         <a href="{% url 'article details' article.slug %}">
                             <div class="home-page-image-wrap">
-                                <!-- article image -->
                                 <img src="{{ article.article_image }}"
                                      alt="Articles">
                             </div>
                         </a>
 
-                        <!-- Article headline -->
                         <h1>{{ article.title }}</h1>
                         <p>{{ article.body|truncatechars:150 }}</p>
 

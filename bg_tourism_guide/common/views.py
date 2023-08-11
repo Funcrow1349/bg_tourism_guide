@@ -22,6 +22,7 @@ def index_view(request):
 def gallery_view(request):
     photos = Photo.objects.all()
 
+    # create pagination
     page_number = request.GET.get('page', 1)
     items_per_page = 9
 
@@ -40,11 +41,13 @@ def gallery_view(request):
 def destinations_view(request):
     destination_type = request.GET.get('type', None)
 
+    # create filtration by type of Destination
     if destination_type:
         destinations = Destination.objects.filter(type=destination_type)
     else:
         destinations = Destination.objects.all()
 
+    # create pagination
     page_number = request.GET.get('page', 1)
     items_per_page = 6
 
@@ -63,6 +66,7 @@ def destinations_view(request):
 def articles_view(request):
     articles = Article.objects.all()
 
+    # create pagination
     page_number = request.GET.get('page', 1)
     items_per_page = 6
 

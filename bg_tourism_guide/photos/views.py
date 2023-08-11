@@ -12,15 +12,7 @@ class AddPhoto(LoginRequiredMixin, CreateView):
     template_name = 'photos/create_photo.html'
     form_class = PhotoCreateForm
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        if self.request.method in ('POST', 'PUT'):
-            kwargs.update({
-                'data': self.request.POST,
-                'files': self.request.FILES,
-            })
-        return kwargs
-
+    # automatically set author upon creation
     def form_valid(self, form):
         form.instance.uploaded_by = self.request.user
         return super().form_valid(form)

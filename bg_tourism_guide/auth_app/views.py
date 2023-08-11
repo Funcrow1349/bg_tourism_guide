@@ -13,6 +13,7 @@ class ProfileCreateView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('index')
 
+    # automatic login upon user creation
     def form_valid(self, form):
         response = super().form_valid(form)
         user = form.save(commit=False)
@@ -40,6 +41,7 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'auth_app/edit_profile_page.html'
     success_url = reverse_lazy('index')
 
+    # Prevent a user from editing another person's account by manually typing the URL
     def test_func(self):
         return self.request.user == self.get_object()
 
@@ -48,6 +50,7 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         obj = get_object_or_404(queryset, pk=self.request.user.pk)
         return obj
 
+    # Upload image file and create unique file name
     def form_valid(self, form):
         profile_picture = self.request.FILES.get('profile_picture')
         if profile_picture:
@@ -62,6 +65,7 @@ class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = 'auth_app/delete_profile_page.html'
     success_url = reverse_lazy('index')
 
+    # Prevent a user from deleting another person's account by manually typing the URL
     def test_func(self):
         return self.request.user == self.get_object()
 

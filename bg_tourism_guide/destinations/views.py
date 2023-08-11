@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from bg_tourism_guide.destinations.forms import DestinationForm
@@ -15,6 +14,7 @@ class DestinationDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         destination = self.get_object()
+        # get all photos in which this destination is tagged
         context['related_photos'] = Photo.objects.filter(tagged_destinations=destination)
         return context
 
@@ -23,6 +23,7 @@ class AddDestination(LoginRequiredMixin, CreateView):
     template_name = 'destinations/add_destination.html'
     form_class = DestinationForm
 
+    # automatically set author upon creation
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)

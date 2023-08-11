@@ -9,6 +9,7 @@ class CustomArticleAdmin(admin.ModelAdmin):
     ordering = ('created',)
     exclude = ('author',)
 
+    # set the author automatically upon creation from the admin page
     def save_model(self, request, obj, form, change):
         if not obj.author:
             obj.author = request.user

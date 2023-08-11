@@ -46,6 +46,7 @@ class Destination(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, editable=False)
 
+    # automatically create slug
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if not self.slug:

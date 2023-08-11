@@ -29,6 +29,7 @@ class UserEditForm(forms.ModelForm):
         model = CustomUser
         fields = ['username', 'gender', 'bio', 'profile_picture']
 
+    #  specify that this field only accepts image files
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['profile_picture'].widget.attrs.update({'accept': 'image/*', 'class': 'file-input'})

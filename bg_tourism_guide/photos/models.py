@@ -33,5 +33,8 @@ class Photo(models.Model):
     date_of_publication = models.DateField(auto_now=True)
     uploaded_by = models.ForeignKey(to=CustomUser, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.description
+
     class Meta:
         ordering = ['-date_of_publication']

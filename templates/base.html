@@ -12,7 +12,6 @@
 <body>
     <div id="box">
         <header>
-            <!-- Navigation Bar -->
             <nav>
                 <img src="{% static 'images/bg-tourism-logo.jpg' %}" alt="Bulgarian Logo" class="logo">
                 <a href="{% url 'index' %}">Home</a>
@@ -33,7 +32,6 @@
             </nav>
         </header>
 
-        <!-- headlines -->
         {% block content %}
         {% endblock %}
     </div>

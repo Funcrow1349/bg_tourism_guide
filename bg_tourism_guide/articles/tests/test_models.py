@@ -4,7 +4,7 @@ from django.test import TestCase
 from bg_tourism_guide.articles.models import Article, CustomUser
 
 
-class ArticleTests(TestCase):
+class ArticleModelTests(TestCase):
     VALID_ARTICLE_DATA = {
         'title': 'Some valid title',
         'body': 'Some valid body',

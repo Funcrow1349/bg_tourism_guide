@@ -5,7 +5,7 @@ from bg_tourism_guide.auth_app.models import CustomUser
 from bg_tourism_guide.destinations.models import Destination
 
 
-class DestinationTests(TestCase):
+class DestinationModelTests(TestCase):
     VALID_DESTINATION_DATA = {
         'name': 'Example Destination',
         'type': 'Beach area',

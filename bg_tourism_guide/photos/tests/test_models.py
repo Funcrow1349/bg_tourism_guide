@@ -5,7 +5,7 @@ from bg_tourism_guide.auth_app.models import CustomUser
 from bg_tourism_guide.photos.models import Photo
 
 
-class PhotoTests(TestCase):
+class PhotoModelTests(TestCase):
     VALID_PHOTO_DATA = {
         'photo': 'https://th.bing.com/th/id/OIP.fSo5HMXhsaMA3S8IfAO_CAHaE7?pid=ImgDet&rs=1',
         'description': 'A very nice photo indeed',

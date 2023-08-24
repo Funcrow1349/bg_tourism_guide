@@ -3,7 +3,7 @@ from django.test import TestCase
 from bg_tourism_guide.auth_app.models import CustomUser
 
 
-class UserTests(TestCase):
+class UserModelTests(TestCase):
 
     VALID_USER_DATA = {
         'first_name': 'Ivan',

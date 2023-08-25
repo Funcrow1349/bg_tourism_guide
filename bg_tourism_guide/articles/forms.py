@@ -1,5 +1,4 @@
 from django import forms
-
 from bg_tourism_guide.articles.models import Article
 
 

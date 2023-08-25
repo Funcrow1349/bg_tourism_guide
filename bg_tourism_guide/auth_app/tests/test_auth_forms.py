@@ -1,5 +1,5 @@
 from django.test import TestCase
-from bg_tourism_guide.auth_app.forms import CustomUserCreationForm
+from bg_tourism_guide.auth_app.forms import CustomUserCreationForm, UserEditForm
 
 
 class UserFormTests(TestCase):
@@ -30,3 +30,9 @@ class UserFormTests(TestCase):
 
         form = CustomUserCreationForm(self.INVALID_USER_DATA)
         self.assertFalse(form.is_valid())
+
+
+class UserEditFormTestCase(TestCase):
+    def test_form_accepts_image_files(self):
+        form = UserEditForm()
+        self.assertIn('accept="image/*"', str(form))

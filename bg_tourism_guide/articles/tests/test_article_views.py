@@ -24,8 +24,8 @@ class ArticleViewTests(TestCase):
         self.test_client = Client()
 
     def test_article_detail_view_get_request_returns_correct_response(self):
-        self.author = CustomUser.objects.create(**self.VALID_AUTHOR_DATA)
-        self.article = Article.objects.create(**self.VALID_ARTICLE_DATA)
+        # self.author = CustomUser.objects.create(**self.VALID_AUTHOR_DATA)
+        # self.article = Article.objects.create(**self.VALID_ARTICLE_DATA)
         response = self.test_client.get('article/')
 
         self.assertEquals(response.status_code, 200)

@@ -1,5 +1,17 @@
 from django.test import TestCase
 
 
-class DestinationViewTests(TestCase):
+class DestinationDetailsViewTests(TestCase):
+    pass
+
+
+class DestinationCreateViewTests(TestCase):
+    pass
+
+
+class DestinationEditViewTests(TestCase):
+    pass
+
+
+class DestinationDeleteViewTests(TestCase):
     pass
